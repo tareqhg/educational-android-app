@@ -60,6 +60,19 @@ public class MainActivity extends AppCompatActivity {
 
         String lang = prefs.getString("lang", "ar");
         String size = prefs.getString("size", "medium");
+        View root = findViewById(android.R.id.content);
+
+        if (lang.equals("ar")) {
+            root.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+        } else {
+            root.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+        }
+// تغيير اسم زر الإعدادات حسب اللغة
+        if (lang.equals("ar")) {
+            btnSettings.setText("⚙️ الإعدادات");
+        } else {
+            btnSettings.setText("⚙️ Settings");
+        }
 
         // تحديد حجم الخط
         float textSize;
@@ -79,14 +92,27 @@ public class MainActivity extends AppCompatActivity {
         };
 
         // تطبيق حجم الخط واتجاه النص
+//        for (TextView tv : allTextViews) {
+//            tv.setTextSize(textSize);
+//            tv.setTextDirection(
+//                    lang.equals("ar")
+//                            ? View.TEXT_DIRECTION_RTL
+//                            : View.TEXT_DIRECTION_LTR
+//            );
+//        }
+
         for (TextView tv : allTextViews) {
             tv.setTextSize(textSize);
-            tv.setTextDirection(
-                    lang.equals("ar")
-                            ? View.TEXT_DIRECTION_RTL
-                            : View.TEXT_DIRECTION_LTR
-            );
+
+            if (lang.equals("ar")) {
+                tv.setTextDirection(View.TEXT_DIRECTION_RTL);
+                tv.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
+            } else {
+                tv.setTextDirection(View.TEXT_DIRECTION_LTR);
+                tv.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
+            }
         }
+
 
         // تغيير المحتوى حسب اللغة
         if (lang.equals("en")) {

@@ -19,6 +19,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginBottom="16dp"
+            android:backgroundTint="#288500"
+            android:textColor="#FFFFFF"
             android:text="⚙️ الإعدادات" />
 
         <androidx.cardview.widget.CardView
@@ -39,7 +41,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="أساسيات البرمجة"
-
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
